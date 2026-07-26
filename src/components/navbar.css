@@ -2,17 +2,19 @@
     border-bottom: 1px solid #dddddd;
 }
 
-.nav-item:hover {
-    transform: scale(1.10);
-    transition: .3s;
+.navbar {
+    background: rgba(255, 255, 255, .6);
+    backdrop-filter: blur(8px);
+}
 
-    border-radius: 10px;
-    background-color: #efefef;
-
+.nav-link:hover {
+    transition: 0.3s;
+    color: #6f42c1;
+    transform: translateY(-2px);
 }
 
 .logo {
     height: 40px;
     width: 40px;
-    margin-right: 8px;
+    margin-right: 10px;
 }
