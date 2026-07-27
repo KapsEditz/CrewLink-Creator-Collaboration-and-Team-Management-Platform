@@ -1,0 +1,33 @@
+.hero {
+    min-height: calc(100vh - 80px);
+
+    display: flex;
+    align-items: center;
+
+    background: radial-gradient(circle at top,
+            #eef5ff,
+            #ffffff 70%);
+}
+
+.hero .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4rem;
+}
+
+.hero-left,
+.hero-right {
+    flex: 1;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:16px;
+}
+
+.hero-image {
+    width: 100%;
+    max-width: 550px;
+    height: auto;
+}
