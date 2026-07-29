@@ -1,11 +1,18 @@
 import React from "react";
 import "./hero.css"
-import heroimage from "../assets/hero-image.jpg"
+import heroimage from "../../assets/hero-image.png"
 
 export default function Hero() {
     return (
         <>
             <section className="hero">
+
+                <div className="hero-glow hero-glow-one"></div>
+                <div className="hero-glow hero-glow-two"></div>
+                <div className="hero-grid"></div>
+
+
+
                 <div className="container">
 
 
@@ -17,7 +24,10 @@ export default function Hero() {
                         </span>
 
                         <h1 className="hero-title">
-                            Bring Your Creative Vision to Life.
+                            Bring Your
+                            <span className="gradient-text"> Creative </span>
+                            <br />
+                            Vision to Life.
                         </h1>
                         <h2 className="hero-subtitle">
                             Build Better Content Together.
@@ -51,12 +61,16 @@ export default function Hero() {
 
 
                     <div className="hero-right">
-                        <img
-                            src={heroimage}
-                            alt="CrewLink Illustration"
-                            className="hero-image"
-                        />
+                        <div className="hero-image-wrapper">
+                            <img
+                                src={heroimage}
+                                alt="CrewLink Illustration"
+                                className="hero-image"
+                            />
+                        </div>
                     </div>
+
+
 
                 </div>
             </section>
