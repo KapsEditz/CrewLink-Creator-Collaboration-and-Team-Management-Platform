@@ -29,9 +29,6 @@ export default function Hero() {
                             <br />
                             Vision to Life.
                         </h1>
-                        <h2 className="hero-subtitle">
-                            Build Better Content Together.
-                        </h2>
 
                         <p className="hero-description">
                             Find talented collaborators, build your dream team, manage creative projects and turn ideas into exceptional content—all from one collaborative platform.
@@ -47,29 +44,52 @@ export default function Hero() {
                             </button>
                         </div>
 
-                        <div className="hero-trust">
-                            <div className="stars">
-                                ⭐⭐⭐⭐⭐
+                        <div className="hero-stats">
+                            <div className="stat-card">
+                                <h3>12K+</h3>
+                                <span>Creators</span>
                             </div>
-                            <p>
-                                Built for creators who believe great content is never created alone.
-                            </p>
+                            <div className="stat-card">
+                                <h3>7.5K+</h3>
+                                <span>Projects</span>
+                            </div>
+                            <div className="stat-card">
+                                <h3>97+</h3>
+                                <span>Companies</span>
+                            </div>
                         </div>
 
                     </div>
-
-
 
                     <div className="hero-right">
                         <div className="hero-image-wrapper">
-                            <img
-                                src={heroimage}
-                                alt="CrewLink Illustration"
-                                className="hero-image"
-                            />
+                            <div className="hero-card">
+
+                                <div className="floating-card card-editor">
+                                    <span className="card-icon">🎬</span>
+                                    <div>
+                                        <h6>Video Editor</h6>
+                                        <p>Available Now</p>
+                                    </div>
+                                </div>
+                                <div className="floating-card card-project">
+                                    <h6>Landing Page</h6>
+                                    <p>4 / 5 Members</p>
+                                </div>
+                                <div className="floating-card card-message">
+                                    <strong>Alex</strong>
+                                    <p>Revision completed.</p>
+                                </div>
+
+                                <img
+                                    src={heroimage}
+                                    alt="CrewLink Illustration"
+                                    className="hero-image"
+                                />
+
+                            </div>
                         </div>
                     </div>
-
 
 
                 </div>
