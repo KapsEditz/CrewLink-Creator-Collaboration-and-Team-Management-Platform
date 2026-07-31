@@ -1,0 +1,145 @@
+.how{
+    padding:140px 0;
+    position:relative;
+}
+
+.how-heading{
+    max-width:700px;
+    margin:0 auto 90px;
+    text-align:center;
+}
+
+.how-heading span{
+    display:inline-block;
+    padding:8px 18px;
+    border-radius:999px;
+    background:#eff6ff;
+    color:var(--primary);
+    font-size:.85rem;
+    font-weight:700;
+    letter-spacing:1px;
+    margin-bottom:24px;
+}
+
+.how-heading h2{
+    font-size:3rem;
+    font-weight:800;
+    color:var(--text);
+    margin-bottom:20px;
+}
+
+.how-heading p{
+    color:var(--text-light);
+    line-height:1.8;
+}
+
+.steps{
+    position:relative;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:40px;
+}
+
+.step-line{
+    position:absolute;
+    top:44px;
+    left:15%;
+    width:70%;
+    height:3px;
+    border-radius:50px;
+    background:linear-gradient(
+        90deg,
+        #60a5fa,
+        #2563eb
+    );
+    z-index:0;
+}
+
+.step-card{
+    position:relative;
+    z-index:2;
+    text-align:center;
+    padding:72px 34px 40px;
+    border-radius:24px;
+    background:white;
+    border:1px solid #e5e7eb;
+    transition:.35s ease;
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.05);
+}
+
+.step-card:hover{
+    transform:translateY(-10px);
+    box-shadow:
+        0 25px 60px rgba(37,99,235,.12);
+}
+
+.step-card::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    border-radius:24px;
+    background:
+    linear-gradient(
+        145deg,
+        rgba(255,255,255,.7),
+        transparent 25%
+    );
+    pointer-events:none;
+}
+
+.step-circle{
+    width:90px;
+    height:90px;
+    margin:-118px auto 24px;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:1.8rem;
+    font-weight:800;
+    color:white;
+    background:
+        linear-gradient(
+            135deg,
+            #3b82f6,
+            #2563eb
+        );
+    box-shadow:
+        0 20px 45px rgba(37,99,235,.25);
+    transition:.35s ease;
+}
+
+.step-card h3{
+    font-size:1.35rem;
+    font-weight:800;
+    margin-bottom:16px;
+}
+
+.step-card p{
+    color:var(--text-light);
+    line-height:1.8;
+}
+
+.step-card:hover .step-circle{
+    transform:
+        scale(1.08)
+        rotate(-8deg);
+}
+
+.step-tag{
+    display:inline-block;
+    margin-bottom:12px;
+    font-size:.78rem;
+    font-weight:700;
+    letter-spacing:1px;
+    color:var(--primary);
+}
+
+.step-card h3{
+    transition:.35s ease;
+}
+
+.step-card:hover h3{
+    color: rgb(70, 70, 70);
+}
