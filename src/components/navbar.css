@@ -58,8 +58,16 @@
     transition: transform .35s ease;
 }
 
-.logo:hover {
-    transform:scale(1.06);
+.navbar-brand{
+    transition:.35s ease;
+}
+
+.navbar-brand:hover .brand-name{
+    color:var(--primary);
+}
+
+.navbar-brand:hover .logo{
+    transform:scale(1.08) rotate(-6deg);
 }
 
 .brand-name {
@@ -68,10 +76,6 @@
     letter-spacing: -1px;
     color: var(--text);
     transition: color .3s ease;
-}
-
-.btn {
-    border-radius: 10px;
 }
 
 .nav-buttons{
@@ -84,7 +88,7 @@
     padding:12px 24px;
     border-radius:14px;
     font-size:.95rem;
-    font-weight:600;
+    font-weight:650;
     cursor:pointer;
     transition:all .3s ease;
 }
