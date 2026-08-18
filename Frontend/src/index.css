@@ -1,0 +1,73 @@
+body {
+    font-family: "Manrope", sans-serif;
+}
+
+:root{
+
+    /* Brand */
+
+    --primary:#2563eb;
+    --primary-light:#60a5fa;
+    --accent:#7c3aed;
+
+
+    
+    /* Text */
+
+    --text:#111827;
+    --text-light:#6b7280;
+
+
+
+    /* Background */
+
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background-color: transparent !important; /* This forces it to let the app background show */
+    --surface:#f8fafc;
+
+
+
+    /* Border */
+
+    --border:#e5e7eb;
+
+
+
+    /* Shadows */
+
+    --shadow-sm:
+        0 8px 20px rgba(0,0,0,.05);
+    --shadow:
+        0 18px 45px rgba(0,0,0,.08);
+    --shadow-lg:
+        0 30px 80px rgba(37,99,235,.12);
+
+
+
+    /* Radius */
+
+    --radius:18px;
+}
+
+/* =========================================
+   Global Page Background Setup
+========================================= */
+
+/* Dark Theme Global Background */
+body.dark-theme {
+  background-color: #050505; /* Deep, clean OLED black */
+  color: #ffffff;
+}
+
+/* Light Theme Global Background */
+body.light-theme {
+  background-color: #ffffff; /* Clean, crisp white */
+  color: #09090b;
+}
+
+/* Ensure all sections are transparent so the global background shows through */
+section {
+  background-color: transparent !important;
+}
