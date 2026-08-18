@@ -1,0 +1,119 @@
+/* =========================================
+   Trusted By Section (Premium SaaS Marquee)
+========================================= */
+.trusted-section {
+  padding: 4rem 0 6rem 0; 
+  /* FIX: Background must be transparent so the global aurora flows behind it */
+  background-color: transparent; 
+  display: flex;
+  justify-content: center;
+  overflow: hidden; /* Prevents horizontal scrollbar */
+}
+
+.trusted-container {
+  width: 100%;
+  max-width: 1200px; /* Aligned perfectly with Hero and Navbar */
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* -----------------------------
+   Typography
+----------------------------- */
+.trusted-text {
+  font-size: 0.85rem; 
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted); /* Uses global theme variable */
+  margin-bottom: 3rem;
+}
+
+/* -----------------------------
+   Infinite Marquee Layout & Fading Edges
+----------------------------- */
+.marquee-wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  overflow: hidden;
+  /* Premium trick: Fades out the logos on the left and right edges */
+  mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+}
+
+.marquee-content {
+  display: flex;
+  align-items: center;
+  gap: 4.5rem; /* Breathing room between logos */
+  padding-left: 4.5rem; /* Matches the gap */
+  width: max-content;
+  /* The infinite scroll animation */
+  animation: scrollMarquee 35s linear infinite;
+}
+
+/* Bonus: Pause the scrolling when a user hovers over the logos */
+.marquee-content:hover {
+  animation-play-state: paused;
+}
+
+@keyframes scrollMarquee {
+  0% { transform: translateX(0); }
+  /* Scrolls exactly half the width of the container (since we duplicated the logos) */
+  100% { transform: translateX(calc(-50% - 2.25rem)); } 
+}
+
+/* -----------------------------
+   Individual Logos & Hover Physics
+----------------------------- */
+.logo-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-muted); 
+  opacity: 0.45; /* Pushes them into the background */
+  cursor: default;
+  user-select: none;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.logo-icon {
+  font-size: 1.6rem;
+}
+
+/* Premium Interaction: Snaps to focus, lights up, and lifts slightly */
+.logo-wrapper:hover {
+  color: var(--text-main); /* Flips to crisp white in dark mode, black in light mode */
+  opacity: 1;
+  transform: translateY(-3px) scale(1.05);
+}
+
+/* -----------------------------
+   Responsive Mobile
+----------------------------- */
+@media (max-width: 768px) {
+  .trusted-section {
+    padding: 2rem 0 4rem 0;
+  }
+  
+  .marquee-content {
+    gap: 3rem;
+    padding-left: 3rem;
+  }
+  
+  .logo-wrapper {
+    font-size: 1.1rem;
+  }
+  
+  .logo-icon {
+    font-size: 1.4rem;
+  }
+  
+  /* Make edge fades slightly smaller on mobile */
+  .marquee-wrapper {
+    mask-image: linear-gradient(to right, transparent, black 25%, black 75%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 25%, black 75%, transparent);
+  }
+}
