@@ -1,0 +1,211 @@
+/* =========================================
+   1. Base & Layout (Aligned to 1200px)
+========================================= */
+.footer-section {
+  position: relative;
+  padding: 4rem 0 2rem 0;
+  background-color: transparent; /* Lets global aurora shine through */
+  color: var(--text-main);
+  border-top: 1px solid rgba(255, 255, 255, 0.08); /* Premium separator */
+  z-index: 10;
+}
+
+body.light-theme .footer-section {
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.footer-container {
+  width: 100%;
+  max-width: 1200px; /* Perfectly matches Navbar, Hero, Features, CTA */
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* =========================================
+   2. Top Section (Brand & Links)
+========================================= */
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 4rem;
+  padding-bottom: 4rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+body.light-theme .footer-top {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+/* --- Brand Info --- */
+.footer-about {
+  max-width: 340px;
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.footer-logo {
+  height: 28px;
+  width: auto;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Notice: The dark-theme drop shadow code has been completely deleted from here too! */
+
+.footer-brand h2 {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #0f172a; /* Strict Black for Light Mode */
+  letter-spacing: -0.02em;
+  transition: color 0.3s ease;
+}
+
+/* FIX: Strict White for Dark Mode */
+body.dark-theme .footer-brand h2 {
+  color: #ffffff;
+}
+
+.footer-brand:hover .footer-logo {
+  transform: scale(1.05) rotate(-5deg);
+}
+
+.footer-brand:hover h2 {
+  color: #38bdf8;
+}
+
+body.light-theme .footer-brand:hover h2 {
+  color: #2563eb;
+}
+
+.footer-about p {
+  color: var(--text-muted);
+  line-height: 1.7;
+  font-size: 0.95rem;
+  text-wrap: pretty;
+}
+
+/* --- Links Columns --- */
+.footer-links-wrapper {
+  display: flex;
+  gap: 6rem;
+}
+
+.footer-links-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-links-col h4 {
+  color: var(--text-main);
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.footer-links-col a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+  margin-bottom: 0.85rem;
+  font-weight: 500;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.footer-links-col a:hover {
+  color: var(--text-main);
+  transform: translateX(4px); /* Premium sliding interaction */
+}
+
+body.light-theme .footer-links-col a:hover {
+  color: #2563eb;
+}
+
+/* =========================================
+   3. Bottom Section (Copyright & Socials)
+========================================= */
+.footer-bottom {
+  padding-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-bottom p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.social-links {
+  display: flex;
+  gap: 1.25rem;
+}
+
+.social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+body.light-theme .social-links a {
+  background: rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.social-links a:hover {
+  color: var(--text-main);
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-3px) scale(1.05);
+}
+
+body.light-theme .social-links a:hover {
+  color: #ffffff;
+  background: #2563eb;
+  border-color: #2563eb;
+}
+
+/* =========================================
+   4. Responsive Overrides
+========================================= */
+@media (max-width: 900px) {
+  .footer-top {
+    flex-direction: column;
+    gap: 3rem;
+  }
+  
+  .footer-links-wrapper {
+    gap: 3rem;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer-links-wrapper {
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+  
+  .footer-bottom {
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: center;
+  }
+}
