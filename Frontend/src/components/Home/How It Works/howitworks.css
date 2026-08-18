@@ -1,0 +1,208 @@
+/* =========================================
+   1. Base & Layout (Aligned to 1200px)
+========================================= */
+.how-section {
+  position: relative;
+  padding: 8rem 0; /* Premium whitespace */
+  background-color: transparent; /* Lets global aurora shine through */
+  color: var(--text-main);
+  overflow: hidden;
+}
+
+.how-container {
+  width: 100%;
+  max-width: 1200px; /* Perfectly matches Navbar and Hero */
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 10;
+}
+
+/* =========================================
+   2. Typography & Header
+========================================= */
+.how-heading {
+  max-width: 700px;
+  margin: 0 auto 5rem auto;
+  text-align: center;
+}
+
+/* Matches the Features & Hero badge style */
+.how-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+body.light-theme .how-badge {
+  background: rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.how-title {
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  font-weight: 800;
+  color: var(--text-main); /* Theme synced */
+  letter-spacing: -0.04em;
+  margin-bottom: 1.25rem;
+  line-height: 1.1;
+}
+
+.how-title .text-gradient {
+  background: linear-gradient(135deg, #38bdf8 0%, #3b82f6 50%, #818cf8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Darker, high-contrast gradient strictly for Light Theme */
+body.light-theme .how-title .text-gradient {
+  background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 50%, #4f46e5 100%); 
+  -webkit-background-clip: text; 
+  -webkit-text-fill-color: transparent;
+}
+
+.how-subtitle {
+  color: var(--text-muted); /* Theme synced */
+  font-size: 1.1rem;
+  line-height: 1.7;
+  max-width: 580px;
+  margin: 0 auto;
+  text-wrap: pretty;
+}
+
+/* =========================================
+   3. Steps Grid & Glass Cards
+========================================= */
+.steps-grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+/* Connecting Neon Line behind the steps */
+.step-line {
+  position: absolute;
+  top: 50px;
+  left: 15%;
+  width: 70%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.5), transparent);
+  z-index: 1;
+}
+
+body.light-theme .step-line {
+  background: linear-gradient(90deg, transparent, rgba(37, 99, 235, 0.3), transparent);
+}
+
+/* Glass Card Styling */
+.how-section .glass-card {
+  position: relative;
+  z-index: 2;
+  text-align: left;
+  padding: 3rem 2rem 2.5rem;
+  border-radius: 24px;
+  background: rgba(15, 23, 42, 0.4); 
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.05), 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+body.light-theme .how-section .glass-card {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.05);
+}
+
+.how-section .glass-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(56, 189, 248, 0.3);
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.7);
+}
+
+body.light-theme .how-section .glass-card:hover {
+  border-color: rgba(37, 99, 235, 0.2);
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.1);
+}
+
+/* Step Number Circle */
+.step-circle {
+  width: 54px;
+  height: 54px;
+  margin-bottom: 1.5rem;
+  border-radius: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #ffffff;
+  background: linear-gradient(135deg, #38bdf8, #2563eb);
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.how-section .glass-card:hover .step-circle {
+  transform: scale(1.08) rotate(-6deg);
+}
+
+.step-tag {
+  display: inline-block;
+  margin-bottom: 0.75rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #38bdf8;
+}
+
+body.light-theme .step-tag {
+  color: #2563eb;
+}
+
+.how-section .glass-card h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-main); /* Theme synced */
+  margin-bottom: 0.75rem;
+  transition: color 0.3s ease;
+}
+
+.how-section .glass-card:hover h3 {
+  color: #38bdf8;
+}
+
+body.light-theme .how-section .glass-card:hover h3 {
+  color: #2563eb;
+}
+
+.how-section .glass-card p {
+  color: var(--text-muted); /* Theme synced */
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* =========================================
+   4. Responsive Overrides
+========================================= */
+@media (max-width: 900px) {
+  .steps-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .step-line {
+    display: none; /* Hide connecting line on mobile as items stack vertically */
+  }
+}
