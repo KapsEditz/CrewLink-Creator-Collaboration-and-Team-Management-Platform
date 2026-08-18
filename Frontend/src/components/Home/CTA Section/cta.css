@@ -1,0 +1,219 @@
+/* =========================================
+   1. Base & Layout (Aligned to 1200px)
+========================================= */
+.cta-section {
+  position: relative;
+  padding: 6rem 0 10rem 0; /* Huge padding at the bottom before the footer */
+  background-color: transparent; /* Lets global aurora shine through */
+  display: flex;
+  justify-content: center;
+}
+
+.cta-container {
+  width: 100%;
+  max-width: 1200px; /* Perfectly matches all other sections */
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 10;
+}
+
+/* =========================================
+   2. The Premium Glassmorphic Card
+========================================= */
+.cta-card {
+  position: relative;
+  overflow: hidden;
+  padding: 6rem 2rem;
+  text-align: center;
+  border-radius: 32px; /* Super sleek, rounded corners */
+  
+  /* Deep Glassmorphism */
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(32px) saturate(180%);
+  -webkit-backdrop-filter: blur(32px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.5);
+}
+
+body.light-theme .cta-card {
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08);
+}
+
+/* Internal Card Glows (Trapped inside the card) */
+.cta-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.5;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.glow-1 {
+  top: -30%;
+  left: -10%;
+  width: 400px;
+  height: 400px;
+  background: #2563eb;
+}
+
+.glow-2 {
+  bottom: -30%;
+  right: -10%;
+  width: 400px;
+  height: 400px;
+  background: #7c3aed; /* Purple accents the blue beautifully */
+}
+
+body.light-theme .cta-glow {
+  opacity: 0.12; /* Keeps it subtle and clean on white */
+}
+
+.cta-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* =========================================
+   3. Typography
+========================================= */
+.cta-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 14px;
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+body.light-theme .cta-badge {
+  background: rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.cta-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  color: var(--text-main);
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+}
+
+.cta-title .text-gradient {
+  background: linear-gradient(135deg, #38bdf8 0%, #3b82f6 50%, #818cf8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Perfect contrast for light mode */
+body.light-theme .cta-title .text-gradient {
+  background: linear-gradient(135deg, #09090b 0%, #2563eb 100%); 
+  -webkit-background-clip: text; 
+  -webkit-text-fill-color: transparent;
+}
+
+.cta-subtitle {
+  max-width: 600px;
+  margin: 0 auto 3rem auto;
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+  text-wrap: pretty;
+}
+
+/* =========================================
+   4. Buttons (Synced with Hero)
+========================================= */
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.btn-cta-primary {
+  background-color: #2563eb;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.9rem 2.5rem;
+  border-radius: 100px;
+  border: none;
+  cursor: pointer;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.2), 0 8px 20px -4px rgba(37, 99, 235, 0.4);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-cta-primary:hover {
+  background-color: #1d4ed8;
+  transform: translateY(-2px);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.3), 0 12px 25px -4px rgba(37, 99, 235, 0.6);
+}
+
+.btn-cta-primary:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.btn-cta-secondary {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-main);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.9rem 2.5rem;
+  border-radius: 100px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+body.light-theme .btn-cta-secondary {
+  background: rgba(0, 0, 0, 0.03);
+  border-color: rgba(0, 0, 0, 0.15);
+}
+
+.btn-cta-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-2px);
+}
+
+body.light-theme .btn-cta-secondary:hover {
+  background: rgba(0, 0, 0, 0.06);
+  border-color: rgba(0, 0, 0, 0.3);
+}
+
+/* =========================================
+   5. Responsive Overrides
+========================================= */
+@media (max-width: 768px) {
+  .cta-section {
+    padding: 4rem 0 6rem 0;
+  }
+  
+  .cta-card {
+    padding: 4rem 1.5rem;
+    border-radius: 24px;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .btn-cta-primary, .btn-cta-secondary {
+    width: 100%;
+  }
+}
