@@ -1,0 +1,234 @@
+/* =========================================
+   1. Base & Layout
+========================================= */
+.testimonials-section {
+  position: relative;
+  padding: 8rem 0; 
+  background-color: transparent; 
+  color: var(--text-main);
+  overflow: hidden;
+}
+
+.testimonials-container {
+  width: 100%;
+  max-width: 1200px; 
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 10;
+}
+
+/* =========================================
+   2. Typography & Header
+========================================= */
+.testimonials-heading {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 4.5rem auto;
+}
+
+.testimonials-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+body.light-theme .testimonials-badge {
+  background: rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.testimonials-title {
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  font-weight: 800;
+  color: var(--text-main);
+  letter-spacing: -0.04em;
+  margin-bottom: 1.25rem;
+  line-height: 1.1;
+}
+
+.testimonials-title .text-gradient {
+  background: linear-gradient(135deg, #38bdf8 0%, #3b82f6 50%, #818cf8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* FIX: The Light Theme Gradient is now a sleek Black-to-Blue fade, not just solid blue */
+body.light-theme .testimonials-title .text-gradient {
+  background: linear-gradient(135deg, #09090b 0%, #2563eb 100%); 
+  -webkit-background-clip: text; 
+  -webkit-text-fill-color: transparent;
+}
+
+.testimonials-subtitle {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  line-height: 1.7;
+  text-wrap: pretty;
+  margin: 0 auto;
+}
+
+/* =========================================
+   3. Glassmorphic Cards (Twitter Style)
+========================================= */
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.testimonial-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 2.5rem;
+  border-radius: 24px;
+  
+  background: rgba(15, 23, 42, 0.4); 
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.05), 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+  
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease, box-shadow 0.4s ease;
+  cursor: pointer;
+}
+
+body.light-theme .testimonial-card {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.05);
+}
+
+.testimonial-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(56, 189, 248, 0.3);
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.7);
+}
+
+body.light-theme .testimonial-card:hover {
+  border-color: rgba(37, 99, 235, 0.2);
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.1);
+}
+
+/* =========================================
+   4. Card Header & Verification
+========================================= */
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.avatar {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 800;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.avatar-gradient-1 { background: linear-gradient(135deg, #38bdf8, #2563eb); }
+.avatar-gradient-2 { background: linear-gradient(135deg, #a78bfa, #7c3aed); }
+.avatar-gradient-3 { background: linear-gradient(135deg, #34d399, #059669); }
+
+.testimonial-card:hover .avatar {
+  transform: scale(1.1) rotate(-5deg);
+}
+
+.user-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-details h4 {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0 0 2px 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-main);
+  transition: color 0.3s ease;
+}
+
+.verified-icon {
+  color: #38bdf8;
+  font-size: 0.9rem;
+}
+
+body.light-theme .verified-icon {
+  color: #2563eb;
+}
+
+.user-details span {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+/* =========================================
+   5. Stars & Review Text
+========================================= */
+.card-stars {
+  display: flex;
+  gap: 3px;
+  color: #fbbf24;
+  font-size: 1rem;
+  margin-bottom: 1.25rem;
+  transition: transform 0.3s ease;
+}
+
+.testimonial-card:hover .card-stars {
+  transform: scale(1.02) translateX(2px);
+  filter: drop-shadow(0 0 8px rgba(251, 191, 36, 0.3));
+}
+
+.review-text {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+.testimonial-card:hover .review-text {
+  color: var(--text-main);
+}
+
+/* =========================================
+   6. Responsive Overrides
+========================================= */
+@media (max-width: 1024px) {
+  .testimonial-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .testimonials-section {
+    padding: 4rem 0;
+  }
+  .testimonial-grid {
+    grid-template-columns: 1fr;
+  }
+}
