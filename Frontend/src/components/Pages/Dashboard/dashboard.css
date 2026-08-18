@@ -1,0 +1,380 @@
+/* =========================================
+   1. GLOBAL THEME VARIABLES (ULTIMATE YC TIER)
+   ========================================= */
+:root, body.light-theme {
+  --bg-color: #f4f6f9;
+  --card-bg: rgba(255, 255, 255, 0.7);
+  --card-border: rgba(226, 232, 240, 0.8);
+  --text-main: #090d16;
+  --text-muted: #525866;
+  --border-color: #e2e8f0;
+  --accent-color: #4f46e5;
+  --accent-hover: #4338ca;
+  --accent-light: rgba(79, 70, 229, 0.08);
+  --success: #16a34a;
+  --warning: #ca8a04;
+  --danger: #dc2626;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.03);
+  --shadow-md: 0 10px 30px -5px rgba(79, 70, 229, 0.08);
+  --shadow-lg: 0 20px 40px -10px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-theme {
+  --bg-color: #07090e;
+  --card-bg: rgba(14, 18, 28, 0.65);
+  --card-border: rgba(255, 255, 255, 0.08);
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --border-color: #1f2430;
+  --accent-color: #6366f1;
+  --accent-hover: #818cf8;
+  --accent-light: rgba(99, 102, 241, 0.15);
+  --success: #4ade80;
+  --warning: #facc15;
+  --danger: #f87171;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 10px 30px -5px rgba(0, 0, 0, 0.6);
+  --shadow-lg: 0 20px 40px -10px rgba(0, 0, 0, 0.8);
+}
+
+/* =========================================
+   2. APP SHELL & LAYOUT
+   ========================================= */
+.dashboard-app {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.dashboard-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+  background-color: transparent;
+  min-width: 0;
+}
+
+.dashboard-content-scroll {
+  flex: 1;
+  overflow-y: auto;
+  padding: 3rem 2.5rem;
+  scroll-behavior: smooth;
+}
+
+.dashboard-content-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* =========================================
+   3. SIDEBAR STYLING
+   ========================================= */
+.dashboard-sidebar {
+  width: 260px;
+  height: 100%;
+  background: var(--card-bg);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border-right: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  z-index: 50;
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 2.5rem;
+  padding: 0 0.5rem;
+}
+
+.sidebar-logo {
+  height: 28px;
+}
+
+.sidebar-brand {
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.sidebar-nav {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.sidebar-link, .nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0.85rem 1rem;
+  border-radius: 12px;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+}
+
+.sidebar-link:hover, .nav-item:hover {
+  color: var(--text-main);
+  background: var(--accent-light);
+}
+
+.sidebar-link.active, .nav-item.active {
+  color: var(--accent-color);
+  background: var(--accent-light);
+  font-weight: 700;
+}
+
+.sidebar-footer {
+  border-top: 1px solid var(--border-color);
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.logout-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  color: var(--text-muted);
+  text-align: left;
+}
+
+.logout-btn:hover {
+  color: var(--danger);
+  background-color: rgba(220, 38, 38, 0.08);
+}
+
+/* =========================================
+   4. TOPBAR & SEARCH TRIGGER
+   ========================================= */
+.dashboard-topbar {
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2.5rem;
+  background: var(--card-bg);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid var(--border-color);
+  z-index: 10;
+}
+
+.topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--text-main);
+  cursor: pointer;
+}
+
+.page-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Command Menu Trigger Pill in Topbar */
+.cmd-trigger-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--bg-color);
+  border: 1px solid var(--border-color);
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cmd-trigger-btn:hover {
+  border-color: var(--accent-color);
+  color: var(--text-main);
+  background: var(--accent-light);
+}
+
+.cmd-kbd {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  padding: 2px 6px;
+  border-radius: 6px;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.notification-btn, .theme-toggle-btn {
+  background: none;
+  border: 1px solid var(--border-color);
+  color: var(--text-muted);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  transition: all 0.2s ease;
+}
+
+.notification-btn:hover, .theme-toggle-btn:hover {
+  color: var(--text-main);
+  background: var(--accent-light);
+  border-color: var(--accent-color);
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent-color), #8b5cf6);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+}
+
+/* =========================================
+   5. PREMIUM SPOTLIGHT CARDS
+   ========================================= */
+.premium-card, .stat-card, .dashboard-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+  padding: 1.75rem;
+  box-shadow: var(--shadow-md);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.premium-card:hover, .stat-card:hover, .dashboard-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--accent-color);
+}
+
+/* =========================================
+   6. ANIMATIONS
+   ========================================= */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fadeIn {
+  animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+
+
+/* =========================================
+   7. PREMIUM AMBIENT BACKGROUND (AURORA)
+   ========================================= */
+/* This sits behind the entire app and gives the glass cards something to blur */
+
+.global-aurora-wrapper {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1; /* Keeps it strictly in the background */
+  overflow: hidden;
+  background-color: var(--bg-color);
+  pointer-events: none; /* Users can't click on it */
+}
+
+/* Base styling for the glowing orbs */
+.aurora-blob {
+  position: absolute;
+  filter: blur(90px);
+  opacity: 0.15; /* Extremely faint so it doesn't distract */
+  border-radius: 50%;
+  animation: float-aurora 15s infinite alternate ease-in-out;
+}
+
+body.light-theme .aurora-blob {
+  opacity: 0.1; /* Even lighter in light mode */
+}
+
+/* Deep Indigo Orb - Top Left */
+.blob-1 {
+  top: -10%;
+  left: -10%;
+  width: 50vw;
+  height: 50vw;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.8) 0%, rgba(0,0,0,0) 70%);
+  animation-delay: 0s;
+}
+
+/* Deep Emerald/Teal Orb - Bottom Right */
+.blob-2 {
+  bottom: -20%;
+  right: -10%;
+  width: 60vw;
+  height: 60vw;
+  background: radial-gradient(circle, rgba(34, 197, 94, 0.4) 0%, rgba(0,0,0,0) 70%);
+  animation-delay: -5s;
+}
+
+/* Faint Purple Orb - Center Drifting */
+.blob-3 {
+  top: 40%;
+  left: 30%;
+  width: 40vw;
+  height: 40vw;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.5) 0%, rgba(0,0,0,0) 70%);
+  animation-delay: -10s;
+}
+
+/* Slow, cinematic drifting animation */
+@keyframes float-aurora {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(5%, 5%) scale(1.1);
+  }
+  100% {
+    transform: translate(-5%, -5%) scale(0.95);
+  }
+}
