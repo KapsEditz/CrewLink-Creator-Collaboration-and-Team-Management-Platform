@@ -1,0 +1,244 @@
+/* =========================================
+   1. Base & Layout
+========================================= */
+.faq-section {
+  position: relative;
+  padding: 8rem 0; /* Massive, breathable spacing */
+  background-color: transparent; /* Lets global aurora shine through */
+  color: var(--text-main);
+}
+
+.faq-container {
+  width: 100%;
+  max-width: 900px; /* FAQs look better slightly narrower than the 1200px full-width */
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 10;
+}
+
+/* =========================================
+   2. Typography & Header
+========================================= */
+.faq-heading {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 4.5rem auto;
+}
+
+.faq-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+body.light-theme .faq-badge {
+  background: rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.faq-title {
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  font-weight: 800;
+  color: var(--text-main);
+  letter-spacing: -0.04em;
+  margin-bottom: 1.25rem;
+  line-height: 1.1;
+}
+
+.faq-title .text-gradient {
+  background: linear-gradient(135deg, #38bdf8 0%, #3b82f6 50%, #818cf8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+body.light-theme .faq-title .text-gradient {
+  /* Black-to-Blue fade for light mode */
+  background: linear-gradient(135deg, #09090b 0%, #2563eb 100%); 
+  -webkit-background-clip: text; 
+  -webkit-text-fill-color: transparent;
+}
+
+.faq-subtitle {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  line-height: 1.7;
+  text-wrap: pretty;
+  margin: 0 auto;
+}
+
+/* =========================================
+   3. Glassmorphic FAQ Items
+========================================= */
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.faq-item {
+  background: rgba(15, 23, 42, 0.4); 
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+body.light-theme .faq-item {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.03);
+}
+
+/* Hover effects */
+.faq-item:hover {
+  border-color: rgba(56, 189, 248, 0.3);
+}
+
+body.light-theme .faq-item:hover {
+  border-color: rgba(37, 99, 235, 0.3);
+}
+
+/* Active (Open) State */
+.faq-item.is-open {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: rgba(56, 189, 248, 0.5);
+  box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.3);
+}
+
+body.light-theme .faq-item.is-open {
+  background: #ffffff;
+  border-color: #2563eb;
+  box-shadow: 0 15px 35px -10px rgba(37, 99, 235, 0.15);
+}
+
+/* =========================================
+   4. The Question Button (Fixed Contrast)
+========================================= */
+.faq-question {
+  width: 100%;
+  padding: 1.75rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: padding 0.3s ease;
+  color: var(--text-main); /* FIX: Forces the button to respect the theme color */
+}
+
+.question-text {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text-main); /* FIX: Ensures text is white in dark mode, black in light */
+  padding-right: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+/* Hover state for the text */
+.faq-question:hover .question-text {
+  color: #38bdf8; /* Nice subtle blue on hover */
+}
+
+body.light-theme .faq-question:hover .question-text {
+  color: #2563eb;
+}
+
+/* Active (Open) State for the text */
+.faq-item.is-open .question-text {
+  color: #38bdf8;
+}
+
+body.light-theme .faq-item.is-open .question-text {
+  color: #2563eb;
+}
+
+/* Plus/Minus Icon Wrapper */
+.faq-icon-wrapper {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-main);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+body.light-theme .faq-icon-wrapper {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.faq-item.is-open .faq-icon-wrapper {
+  background: #38bdf8;
+  color: #0f172a;
+  transform: rotate(90deg);
+}
+
+body.light-theme .faq-item.is-open .faq-icon-wrapper {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+/* =========================================
+   5. Modern CSS Grid Accordion Animation
+========================================= */
+.faq-answer-wrapper {
+  display: grid;
+  grid-template-rows: 0fr; /* Collapsed state */
+  transition: grid-template-rows 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.faq-item.is-open .faq-answer-wrapper {
+  grid-template-rows: 1fr; /* Expanded state */
+}
+
+.faq-answer-inner {
+  overflow: hidden; /* Hides content when grid row is 0fr */
+}
+
+.faq-answer-inner p {
+  padding: 0 2rem 2rem 2rem;
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+/* =========================================
+   6. Responsive Mobile
+========================================= */
+@media (max-width: 768px) {
+  .faq-section {
+    padding: 4rem 0;
+  }
+  
+  .faq-question {
+    padding: 1.5rem;
+  }
+
+  .question-text {
+    font-size: 1.05rem;
+  }
+
+  .faq-answer-inner p {
+    padding: 0 1.5rem 1.5rem 1.5rem;
+    font-size: 1rem;
+  }
+}
